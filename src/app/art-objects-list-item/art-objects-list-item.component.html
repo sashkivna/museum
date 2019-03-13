@@ -1,0 +1,9 @@
+<div class="art-objects-list-item"
+  [class.is-selected]="isSelected"
+  (click)="select.emit()">
+
+  <div class="tooltip">
+  <img class="list-element " [src]= artObject.webImage.url>
+    <span class="tooltiptext">{{artObject.title}}</span>
+  </div>
+</div>

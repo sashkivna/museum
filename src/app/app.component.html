@@ -1,0 +1,42 @@
+<h1 class="title"> Museum Art Objects Gallery</h1>
+<div>
+  <div>
+    <div class="presets">
+      <div class="dropdown">
+        <button class="dropbtn">Sorting</button>
+        <div class="dropdown-content">
+          <li (click)="onSort('relevance')">relevance</li>
+          <li (click)="onSort('achronologic')">newest first</li>
+          <li (click)="onSort('objecttype')">type</li>
+          <li (click)="onSort('chronologic')">oldest first</li>
+          <li (click)="onSort('artist')">artist</li>
+        </div>
+      </div>
+      <form (submit)="onSearch($event, searchInput.value)">
+        <input class="search-field" type="search" #searchInput>
+        <button class="search-button" type="submit">Search</button>
+      </form>
+    </div>
+    <div class="custom-grid" *ngIf="artObjects && artObjects.length; else noData">
+      <app-art-objects-list-item *ngFor="let artObject of artObjects"
+                                 [artObject]="artObject"
+                                 [isSelected]="isSelected(artObject)"
+                                 (select)="selectArtObject(artObject)">
+      </app-art-objects-list-item>
+    </div>
+    <app-pagination [totalItems]="totalItems"
+                    (searchByParams)="findDataByParams($event)">
+    </app-pagination>
+  </div>
+
+  <app-art-object-details *ngIf="selectedArtObjectDetails"
+                          [artObjectDetails]="selectedArtObjectDetails">
+  </app-art-object-details>
+</div>
+
+<ng-template #noData>
+  <div>Sorry no data found!</div>
+</ng-template>
+
+
+<router-outlet></router-outlet>

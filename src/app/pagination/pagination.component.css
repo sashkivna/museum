@@ -1,0 +1,33 @@
+.pagination {
+  list-style-type: none;
+  display: inline-flex;
+}
+
+
+.page-number {
+  color: black;
+  background-color: antiquewhite;
+  border: 1px solid pink;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+
+.active {
+  background-color: pink;
+}
+
+.items-amount {
+
+}
+
+.amount-button {
+  height: 33px;
+  margin-top: 17px;
+  padding: 8px 16px;
+}
+
+.bottom-container {
+  display: flex;
+  justify-content: space-around;
+}

@@ -1,0 +1,25 @@
+<div *ngIf="_totalItems > 0" class="bottom-container">
+<ul class="pagination">
+  <ng-container *ngIf="paginationData.dotsFromTheLeft">
+  <li class="page-number"><span (click)="setPage(1)">1</span></li>
+  <li class="page-number">...</li>
+  </ng-container>
+  <li *ngFor="let page of paginationData.pages"
+      class="page-number"
+      (click)="setPage(page)"
+      [ngClass]="{active: paginationData.currentPage === page}">
+    {{page}}
+  </li>
+  <ng-container *ngIf="paginationData.dotsFromTheRight">
+    <li class="page-number">...</li>
+    <li class="page-number"><span (click)="setPage(paginationData.totalPages)">{{paginationData.totalPages}}</span></li>
+  </ng-container>
+</ul>
+
+  <div class="pagination items-amount">
+    <button *ngFor="let range of rageOfItemsPerPage"
+            (click)="setAmountOfPage(range)"
+            class="amount-button"
+            [ngClass]="{active: itemsPerPage === range}">{{range}}</button>
+  </div>
+</div>

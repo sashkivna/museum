@@ -1,0 +1,25 @@
+.list-element {
+  width: 350px;
+  height: 350px;
+  padding: 8px;
+}
+
+div:hover {
+  text-decoration	: none;
+}
+
+div.tooltip span {
+  display: none;
+  width: 350px;
+  margin-left: -358px;
+  height: 36px;
+}
+
+div.tooltip:hover span {
+  display			: inline;
+  position		: absolute;
+  background		: #000000;
+  border			: 1px solid #cccccc;
+  color			: #ffffff;
+  margin-top: 350px;
+}

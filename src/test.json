@@ -1,0 +1,33 @@
+{
+  "links": {
+    "self": "https://www.rijksmuseum.nl/api/en/collection/BK-1976-75",
+    "web": "https://www.rijksmuseum.nl/en/collection/BK-1976-75"
+  },
+  "id": "en-BK-1976-75",
+  "objectNumber": "BK-1976-75",
+  "title": "Lidded ewer",
+  "hasImage": true,
+  "principalOrFirstMaker": "Adam van Vianen (I)",
+  "longTitle": "Lidded ewer, Adam van Vianen (I), 1614",
+  "showImage": true,
+  "permitDownload": true,
+  "webImage": {
+    "guid": "b7593955-22ca-4628-89f9-4f11d4f245d2",
+    "offsetPercentageX": 0,
+    "offsetPercentageY": 0,
+    "width": 5490,
+    "height": 7485,
+    "url": "https://lh3.googleusercontent.com/Ovyo5Lk0AJGQtOvaFAc3ftMiDwPgLlEhl70T93W7s5QtNm5I33t4vMsA2JJ10i5srucjNOdzjQlvyyCKf_DGKUdEirI=s0"
+  },
+  "headerImage": {
+    "guid": "f1af8da6-16f4-4357-9936-e1ed2a02928c",
+    "offsetPercentageX": 0,
+    "offsetPercentageY": 0,
+    "width": 1920,
+    "height": 460,
+    "url": "https://lh3.googleusercontent.com/0DCTJOH0oyRfYZpAjbrwz4NY0LGbjYzmSwZ6Cu-VXoULvXhjrZOi6ABJUwOOXfF1qhDocyiV2yK-dOAs9XcID2o0Ibc=s0"
+  },
+  "productionPlaces": [
+    "Utrecht"
+  ]
+}
