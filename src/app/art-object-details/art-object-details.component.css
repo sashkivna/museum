@@ -2,7 +2,7 @@
   display: block;
   width: 500px;
   height: 500px;
-  padding-right: 50px;
+  margin: auto  ;
 }
 
 .long-title {
@@ -15,29 +15,35 @@
   text-align: center;
 }
 
-.b-popup{
-  padding-left: 8%;
-  padding-right: 8%;
-  margin-left: 18%;
-  width:800px;
+.b-popup {
+  background-color: seashell;
+  top: calc(50vh - 350px);
+  left: calc(50vw - 400px);
+  position: absolute;
+  width: 800px;
   height: 700px;
-  /*opacity: 0.3;*/
-  background-color: #8fb7c9;
-  overflow:hidden;
-  position:fixed;
-  top:0px;
+  padding-top: 30px;
 }
+
+  .wrapper {
+    background-color: #868686e3;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+  }
+
 .b-popup .b-popup-content{
-  background-color: #8fb7c9;
   border-radius:5px;
-  display: flex;
   position: relative;
 }
 
 .popup-buttons {
   display: flex;
   justify-content: space-around;
-  padding-top: 25px;
+  padding-top: 20px;
 }
 
 .popup-button {

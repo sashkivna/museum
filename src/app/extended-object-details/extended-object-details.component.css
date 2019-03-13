@@ -1,6 +1,5 @@
 .extended-img {
   height: 500px;
-  width: 500px;
 }
 
 .extended-info {
@@ -21,7 +20,6 @@
 }
 
 .info {
-  margin-left: 30px;
   background-color: #ffffff;
   border: 1px solid black;
   opacity: 0.6;
@@ -35,8 +33,7 @@
 
 .background {
   background-image: url("../background.jpg");
-  height: 900px;
-  width: 100%;
+  height: auto;
 }
 
 div:hover {
@@ -56,4 +53,11 @@ div.tooltip:hover span {
   background-color: lightskyblue;
   color: black;
   margin-top: 30px;
+}
+
+.wrapper {
+  margin: auto;
+  width: 1300px;
+  height: 800px;
+  padding-top: 50px;
 }

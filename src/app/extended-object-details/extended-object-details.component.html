@@ -1,4 +1,6 @@
 <div class="background">
+  <div class="wrapper">
+    <button (click)="backToPrevious()">&larr;  Home</button>
 <div class="extended-info">
 <img class="extended-img" [src]="selectedItem.webImage.url">
 <div class="info">
@@ -32,5 +34,6 @@
               (click)="applyDateOnAllItemsSorting('achronologic')">date of creation</button>
       <span class="tooltiptext">sorting by date</span>
     </div>
+  </div>
   </div>
 </div>

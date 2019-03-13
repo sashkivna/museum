@@ -40,7 +40,7 @@ export class AppComponent implements OnInit {
     this.dataTransferService.onSearch.subscribe(
       (value: string) => {
         this.searchParam = value;
-        this.onSearch(Event, value);
+        this.onSearch(value, null);
       }
     );
   }
@@ -63,9 +63,13 @@ export class AppComponent implements OnInit {
   }
 
 
-  onSearch($event, searchQuery) {
+  onSearch(searchQuery, $event) {
     this.searchParam = searchQuery;
-    $event.preventDefault();
+
+    if ($event) {
+      $event.preventDefault();
+    }
+
     this.getArtObjects(this.searchParam, this.sortingParam, this.itemsOnPage, this.currentPage);
   }
 

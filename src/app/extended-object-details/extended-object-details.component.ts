@@ -41,4 +41,8 @@ export class ExtendedObjectDetailsComponent implements OnInit {
     this.dataTransferService.searchByTag(param);
     this.router.navigateByUrl('');
   }
+
+  backToPrevious() {
+    this.router.navigateByUrl('');
+  }
 }
