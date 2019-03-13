@@ -1,1 +1,36 @@
-<div>{{extendedObjectDetailsComponent | json}}</div>
+<div class="background">
+<div class="extended-info">
+<img class="extended-img" [src]="selectedItem.webImage.url">
+<div class="info">
+  <h2 class="extended-long-title">{{ selectedItem.longTitle }}</h2>
+  <p>{{ selectedItem.description }}</p>
+  <p><div class="prop-name">Object type: </div>{{ selectedItem.objectTypes }}
+  <p><div class="prop-name">Materials: </div>{{ selectedItem.materials}}
+  <p><div class="prop-name">Name: </div>{{ selectedItem.principalMakers[0].name }}
+  <p><div class="prop-name">Place of birth: </div>{{ selectedItem.principalMakers[0].placeOfBirth }}
+  <p><div class="prop-name">Date of birth: </div>{{ selectedItem.principalMakers[0].dateOfBirth }}
+  <p><div class="prop-name">Description: </div>{{ selectedItem.plaqueDescriptionEnglish }}
+</div>
+</div>
+  <div class="extended-buttons">
+    <div class="tooltip">
+      <button class="extended-tags" (click)="applyDateOnAllItemsSearching(selectedItem.objectTypes)">{{ selectedItem.objectTypes }}</button>
+      <span class="tooltiptext">search by category</span>
+    </div>
+    <div class="tooltip">
+      <button class="extended-tags"
+              (click)="applyDateOnAllItemsSorting('artist')">{{selectedItem.principalMakers[0].name}}</button>
+      <span class="tooltiptext">sorting by artist</span>
+    </div>
+    <div class="tooltip">
+      <button class="extended-tags"
+              (click)="applyDateOnAllItemsSearching(selectedItem.principalMakers[0].placeOfBirth)">{{selectedItem.principalMakers[0].placeOfBirth}}</button>
+      <span class="tooltiptext">search by city</span>
+    </div>
+    <div class="tooltip">
+      <button class="extended-tags"
+              (click)="applyDateOnAllItemsSorting('achronologic')">date of creation</button>
+      <span class="tooltiptext">sorting by date</span>
+    </div>
+  </div>
+</div>

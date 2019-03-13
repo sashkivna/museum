@@ -1,4 +1,5 @@
-import {Component, Input, Output} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {MuseumDataModel} from '../models/AppModels';
 
 @Component({
   selector: 'app-art-object-details',
@@ -6,9 +7,10 @@ import {Component, Input, Output} from '@angular/core';
   styleUrls: ['./art-object-details.component.css']
 })
 export class ArtObjectDetailsComponent {
-  @Input() artObjectDetails;
+  @Input() artObjectItem: MuseumDataModel;
+  @Output() closeModal = new EventEmitter();
 
   closePopup() {
-    this.artObjectDetails = null;
+    this.closeModal.emit();
   }
 }

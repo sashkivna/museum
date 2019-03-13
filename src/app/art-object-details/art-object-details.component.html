@@ -1,13 +1,14 @@
-  <div class="b-popup" *ngIf="artObjectDetails">
+  <div class="b-popup" *ngIf="artObjectItem">
   <div class="b-popup-content">
-    <img class="responsive-img" [src]="artObjectDetails.webImage.url">
+    <img class="responsive-img" [src]="artObjectItem.webImage.url">
     <div>
-      <h2 class="long-title">{{ artObjectDetails.longTitle }}</h2>
-      <p class="details-description">{{ artObjectDetails.description }}</p>
+      <h2 class="long-title">{{ artObjectItem.longTitle }}</h2>
+      <p class="details-description">{{ artObjectItem.description }}</p>
     </div>
   </div>
   <div class="popup-buttons">
-    <button class="popup-button" routerLink="/detail/{{artObjectDetails.id}}">View more details</button>
+    <button class="popup-button" routerLink="/detail/{{artObjectItem.objectNumber}}">View more details</button>
     <button class="popup-button" (click)="closePopup()">Close</button>
   </div>
 </div>
+{{artObjectItem|json}}

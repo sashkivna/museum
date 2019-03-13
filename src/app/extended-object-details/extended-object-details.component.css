@@ -1,0 +1,59 @@
+.extended-img {
+  height: 500px;
+  width: 500px;
+}
+
+.extended-info {
+  display: flex;
+  margin-left: 10%;
+}
+
+.extended-buttons {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+}
+
+.extended-tags {
+  height: 30px;
+  width: 150px;
+  margin: 3px;
+}
+
+.info {
+  margin-left: 30px;
+  background-color: #ffffff;
+  border: 1px solid black;
+  opacity: 0.6;
+  padding-left: 5%;
+}
+
+.prop-name {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.background {
+  background-image: url("../background.jpg");
+  height: 900px;
+  width: 100%;
+}
+
+div:hover {
+  text-decoration	: none;
+}
+
+div.tooltip span {
+  display: none;
+  width: 149px;
+  margin-left: -150px;
+  height: 26px;
+}
+
+div.tooltip:hover span {
+  display: inline;
+  position: absolute;
+  background-color: lightskyblue;
+  color: black;
+  margin-top: 30px;
+}

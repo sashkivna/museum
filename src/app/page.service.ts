@@ -20,15 +20,15 @@ export class PageService {
   }
 
 
-  getPage(totalItems: number, currentPage: number = 1, pageSize: number = 10): PaginationInterface {
+  getPage(totalItems: number, currentPage: number = 1, itemsOnPage: number = 10): PaginationInterface {
     // calculate total pages
-    let totalPages = Math.ceil(totalItems / pageSize);
-    if (totalPages * pageSize >= this.apiRestriction ) {
-      totalPages = Math.ceil(this.apiRestriction / pageSize);
+    let totalPages = Math.ceil(totalItems / itemsOnPage);
+    if (totalPages * itemsOnPage >= this.apiRestriction ) {
+      totalPages = Math.ceil(this.apiRestriction / itemsOnPage);
     }
 
-    if (currentPage * pageSize > this.apiRestriction) {
-      currentPage = Math.ceil(this.apiRestriction / pageSize);
+    if (currentPage * itemsOnPage > this.apiRestriction) {
+      currentPage = Math.ceil(this.apiRestriction / itemsOnPage);
     }
 
     let startPage: number;
@@ -58,7 +58,7 @@ export class PageService {
       this.dotsFromTheRight = false;
     }
 
-    // create an array of pages to ng-repeat in the pager control
+    // an array of pages
     const pages = [];
 
     for (let i = startPage; i < endPage; i++) {
@@ -69,7 +69,7 @@ export class PageService {
     return {
       totalItems,
       currentPage,
-      pageSize,
+      itemsOnPage,
       totalPages,
       startPage,
       endPage,

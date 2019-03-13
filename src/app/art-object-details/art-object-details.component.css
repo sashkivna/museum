@@ -2,33 +2,36 @@
   display: block;
   width: 500px;
   height: 500px;
-  padding-right: 150px;
+  padding-right: 50px;
 }
 
 .long-title {
-  font-size: 55px;
+  font-size: 26px;
   text-align: center;
 }
 
 .details-description {
-  font-size: 28px;
+  font-size: 12px;
   text-align: center;
 }
 
 .b-popup{
-  padding-left: 10%;
-  padding-right: 10%;
-  width:80%;
-  height: 90%;
-  background-color: #c5c5c5;
+  padding-left: 8%;
+  padding-right: 8%;
+  margin-left: 18%;
+  width:800px;
+  height: 700px;
+  /*opacity: 0.3;*/
+  background-color: #8fb7c9;
   overflow:hidden;
   position:fixed;
   top:0px;
 }
 .b-popup .b-popup-content{
-  background-color: #c5c5c5;
+  background-color: #8fb7c9;
   border-radius:5px;
   display: flex;
+  position: relative;
 }
 
 .popup-buttons {
@@ -43,4 +46,8 @@
   width: 130px;
   height: 50px;
   font-size: 16px;
+}
+
+body {
+  opacity: 0.3;
 }

@@ -1,4 +1,5 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import {Component, Input, Output, EventEmitter} from '@angular/core';
+import {MuseumDataModel} from '../models/AppModels';
 
 @Component({
   selector: 'app-art-objects-list-item',
@@ -6,7 +7,10 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./art-objects-list-item.component.css']
 })
 export class ArtObjectsListItemComponent {
-  @Input() isSelected;
-  @Input() artObject;
-  @Output() select = new EventEmitter();
+  @Input() artObject: MuseumDataModel;
+  @Output() clickedOnImage = new EventEmitter();
+
+  clickedOnTile() {
+    this.clickedOnImage.emit(this.artObject);
+  }
 }

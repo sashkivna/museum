@@ -34,7 +34,7 @@ export interface HeaderImageInterface {
 export interface PaginationInterface {
   totalItems: number;
   currentPage: number;
-  pageSize: number;
+  itemsOnPage: number;
   totalPages: number;
   startPage: number;
   endPage: number;

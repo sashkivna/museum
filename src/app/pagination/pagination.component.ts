@@ -40,7 +40,7 @@ export class PaginationComponent {
     this.itemsPerPage = amount;
     this.reCalculatePaginationNumbers();
 
-    this.searchByParams.emit({itemsPerPage: this.paginationData.pageSize, currentPage: this.paginationData.currentPage});
+    this.searchByParams.emit({itemsPerPage: this.paginationData.itemsOnPage, currentPage: this.paginationData.currentPage});
   }
 
   reCalculatePaginationNumbers() {

@@ -1,6 +1,7 @@
 import {Component, Input, OnInit, Output} from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { RijksmuseumApiService} from '../rijksmuseum-api.service';
+import {ActivatedRoute, Router} from '@angular/router';
+import {RijksmuseumApiService} from '../rijksmuseum-api.service';
+import {DataTransferService} from '../data-transfer.service';
 
 @Component({
   selector: 'app-extended-object-details',
@@ -9,10 +10,13 @@ import { RijksmuseumApiService} from '../rijksmuseum-api.service';
 })
 export class ExtendedObjectDetailsComponent implements OnInit {
 
-  @Input() extendedObjectDetailsComponent;
-  /*@Output() extendedObjectDetailsComponent;*/
+  @Input() selectedItem;
 
-  constructor(private route: ActivatedRoute, private rijksmuseumApiService: RijksmuseumApiService) { }
+  constructor(private route: ActivatedRoute,
+              private router: Router,
+              private rijksmuseumApiService: RijksmuseumApiService,
+              private dataTransferService: DataTransferService) {
+  }
 
   ngOnInit() {
     this.getItem();
@@ -24,7 +28,17 @@ export class ExtendedObjectDetailsComponent implements OnInit {
     this.rijksmuseumApiService
       .getDetails(id)
       .subscribe((response: any) => {
-        this.extendedObjectDetailsComponent = response.artObject;
+        this.selectedItem = response.artObject;
       });
+  }
+
+  applyDateOnAllItemsSorting(param: string) {
+    this.dataTransferService.transferParameter(param);
+    this.router.navigateByUrl('');
+  }
+
+  applyDateOnAllItemsSearching(param: string) {
+    this.dataTransferService.searchByTag(param);
+    this.router.navigateByUrl('');
   }
 }

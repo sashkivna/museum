@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {RijksmuseumApiService} from './rijksmuseum-api.service';
 import {MuseumDataModel, SearchParams} from './models/AppModels';
+import { DataTransferService} from './data-transfer.service';
 
 
 @Component({
@@ -12,20 +13,36 @@ import {MuseumDataModel, SearchParams} from './models/AppModels';
 export class AppComponent implements OnInit {
 
   artObjects: Array<MuseumDataModel>;
-  selectedArtObjectNumber;
   selectedArtObjectDetails;
   totalItems = 0;
-
-  constructor(private museumApiService: RijksmuseumApiService) {
-  }
-
   itemsOnPage: number;
   currentPage: number;
   sortingParam = '';
   searchParam = '';
 
+  showOutlet = true;
+  private showModal: boolean;
+
+  constructor(private museumApiService: RijksmuseumApiService,
+              private dataTransferService: DataTransferService) {
+  }
+
   ngOnInit() {
     this.getArtObjects(this.searchParam, this.sortingParam, 10, 1);
+
+    this.dataTransferService.onSort.subscribe(
+      (value: string) => {
+        this.sortingParam = value;
+        this.onSort(value);
+      }
+    );
+
+    this.dataTransferService.onSearch.subscribe(
+      (value: string) => {
+        this.searchParam = value;
+        this.onSearch(Event, value);
+      }
+    );
   }
 
   getArtObjects(searchQuery, parameter, itemsOnPage, pageNumber) {
@@ -39,24 +56,12 @@ export class AppComponent implements OnInit {
       });
   }
 
-  getSelectedArtObjectDetails() {
-    this.selectedArtObjectDetails = undefined;
 
-    this.museumApiService
-      .getDetails(this.selectedArtObjectNumber)
-      .subscribe((response: any) => {
-        this.selectedArtObjectDetails = response.artObject;
-      });
+  selectArtObject(selectedItem: MuseumDataModel) {
+    this.selectedArtObjectDetails = selectedItem;
+    this.showModal = true;
   }
 
-  selectArtObject(artObjectToSelect) {
-    this.selectedArtObjectNumber = artObjectToSelect.objectNumber;
-    this.getSelectedArtObjectDetails();
-  }
-
-  isSelected(artObject) {
-    return artObject.objectNumber === this.selectedArtObjectNumber;
-  }
 
   onSearch($event, searchQuery) {
     this.searchParam = searchQuery;
@@ -74,5 +79,14 @@ export class AppComponent implements OnInit {
     this.itemsOnPage = params.itemsPerPage;
     this.currentPage = params.currentPage;
     this.getArtObjects('', this.sortingParam, this.itemsOnPage, this.currentPage);
+  }
+
+  toggleOutlet() {
+    this.showOutlet = !this.showOutlet;
+    this.showModal = false;
+  }
+
+  closeModal() {
+    this.showModal = false;
   }
 }
